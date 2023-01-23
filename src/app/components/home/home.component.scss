@@ -1,0 +1,38 @@
+.banner {
+  background-color: #fff;
+  color: #141414;
+  padding: 20px;
+  text-align: center;
+}
+
+.banner h1 {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.banner p {
+  font-size: 18px;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.banner-button {
+  background-color: #fff;
+  color: #7dccff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  border-color: #7dccff;
+  border: 2px solid;
+}
+
+.home-banner {
+  margin-bottom: 20px;
+}
+
+.banner-img {
+  width: 50%;
+  height: auto;
+}
