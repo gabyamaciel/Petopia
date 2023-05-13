@@ -7,12 +7,12 @@
 
 .home h1 {
   font-size: 45px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .home p {
   font-size: 18px;
-  margin: 20px auto;
+  margin: 0px auto 20px;
   width: 80%;
 }
 
@@ -35,4 +35,8 @@
 .banner-img {
   width: 70%;
   height: auto;
+}
+
+.slogan {
+  font-style: italic;
 }
