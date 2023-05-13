@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Pet } from 'src/app/models/pet.model';
+import { Pet } from '../../models/pet.model';
 import { PetService } from '../../services/pet.service';
 
 @Component({
@@ -9,8 +9,20 @@ import { PetService } from '../../services/pet.service';
 })
 export class PetManagerComponent {
   pets: Pet[] = [];
+  isModalOpen = false;
+  
+  selectedPet!: Pet;
 
   constructor(private petService: PetService) {}
+  
+  openModal(pet: Pet) {
+    this.selectedPet = {...pet};
+    this.isModalOpen = true;
+  }
+  
+  closeModal() {
+    this.isModalOpen = false;
+  }
 
   ngOnInit() {
     this.fetchPets();

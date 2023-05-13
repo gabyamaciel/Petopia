@@ -17,11 +17,15 @@
         <td>{{ pet.breed }}</td>
         <td>{{ pet.age }}</td>
         <td>
-          <button >Edit</button>
-          <button >Delete</button>
+          <button (click)="openModal(pet)">Edit</button>
+          <button>Delete</button>
         </td>
+        
       </tr>
     </tbody>
   </table>
+  <div *ngIf="isModalOpen">
+    <edit-modal [selectedPet]="selectedPet" (closeModal)="closeModal()"></edit-modal>
+  </div>
   <button class="home-button" [routerLink]="'/home'">Go Back</button>
 </div>

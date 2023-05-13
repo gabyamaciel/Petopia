@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PetManagerComponent } from './components/petManager/pet-manager.component';
+import { EditModalComponent } from './components/editModal/edit-modal.component';
 // Services
 import { PetService } from './services/pet.service';
 
@@ -17,6 +18,7 @@ import { PetService } from './services/pet.service';
     NavbarComponent,
     HomeComponent,
     PetManagerComponent,
+    EditModalComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [PetService],
