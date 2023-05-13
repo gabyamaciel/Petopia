@@ -1,0 +1,27 @@
+<div class="home">
+  <h1>Pets Data Manager</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Species</th>
+        <th>Breed</th>
+        <th>Age</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pet of pets">
+        <td>{{ pet.name }}</td>
+        <td>{{ pet.species }}</td>
+        <td>{{ pet.breed }}</td>
+        <td>{{ pet.age }}</td>
+        <td>
+          <button >Edit</button>
+          <button >Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="home-button" [routerLink]="'/home'">Go Back</button>
+</div>

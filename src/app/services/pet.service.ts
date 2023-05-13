@@ -12,8 +12,8 @@ export class PetService {
 
   constructor(private http: HttpClient) {}
 
-  // Fetches all pets from the API
-  getPets(): Observable<Pet[]> {
+  // Fetches all Pet from the API
+  getPet(): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.apiUrl);
   }
 
