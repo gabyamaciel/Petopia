@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { PetManagerComponent } from './components/petmanager/petmanager.component';
+import { PetManagerComponent } from './components/petManager/pet-manager.component';
 // Services
 import { PetService } from './services/pet.service';
 

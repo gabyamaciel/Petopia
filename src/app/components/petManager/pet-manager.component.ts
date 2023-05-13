@@ -3,9 +3,9 @@ import { Pet } from 'src/app/models/pet.model';
 import { PetService } from '../../services/pet.service';
 
 @Component({
-  selector: 'petmanager-component',
-  templateUrl: './petmanager.component.html',
-  styleUrls: ['./petmanager.component.scss'],
+  selector: 'pet-manager-component',
+  templateUrl: './pet-manager.component.html',
+  styleUrls: ['./pet-manager.component.scss'],
 })
 export class PetManagerComponent {
   pets: Pet[] = [];
