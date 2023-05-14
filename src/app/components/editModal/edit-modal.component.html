@@ -1,0 +1,14 @@
+<div class="modal">
+  <div class="modal-content">
+    <button class="close-button" (click)="close.emit()">X</button>
+    <label id="name">Name:</label>
+    <input id="name" type="text" [(ngModel)]="selectedPet.name" />
+    <label for="species">Species:</label>
+    <input id="species" type="text" [(ngModel)]="selectedPet.species" />
+    <label for="breed">Breed:</label>
+    <input id="breed" type="text" [(ngModel)]="selectedPet.breed" />
+    <label for="age">Age:</label>
+    <input id="age" type="number" [(ngModel)]="selectedPet.age" />
+    <button class="save-button" (click)="save.emit()">Save & Close</button>
+  </div>
+</div>

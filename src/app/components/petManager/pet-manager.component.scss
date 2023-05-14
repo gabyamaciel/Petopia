@@ -1,0 +1,9 @@
+@import "../../shared/mixins";
+
+button {
+  @include button;
+}
+
+.table-style {
+  margin: 50px;
+}

@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pet } from '../models/pet.model';
+import { constants } from '../constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PetService {
-  private apiUrl =
-    'https://my-json-server.typicode.com/gabyamaciel/pet-store-api/pets';
+  private apiUrl = constants.apiURL;
 
   constructor(private http: HttpClient) {}
 
-  // Fetches all pets from the API
-  getPets(): Observable<Pet[]> {
+  // Fetches all Pet from the API
+  getPet(): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.apiUrl);
   }
 

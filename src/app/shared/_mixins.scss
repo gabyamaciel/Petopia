@@ -1,0 +1,17 @@
+@import "./_variables.scss";
+
+@mixin button {
+  background-color: #fff;
+  color: $secondary-color;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  border-color: $secondary-color;
+  border: 2px solid;
+  &:hover {
+    background-color: $secondary-color;
+    color: #fff;
+  }
+}

@@ -1,3 +1,5 @@
+@import "../../shared/mixins";
+
 .home {
   background-color: #fff;
   color: #141414;
@@ -7,25 +9,17 @@
 
 .home h1 {
   font-size: 45px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .home p {
   font-size: 18px;
-  margin: 20px auto;
+  margin: 0px auto 20px;
   width: 80%;
 }
 
 .home-button {
-  background-color: #fff;
-  color: #7dccff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 6px;
-  border-color: #7dccff;
-  border: 2px solid;
+  @include button;
 }
 
 .banner {
@@ -33,6 +27,13 @@
 }
 
 .banner-img {
-  width: 70%;
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+  width: 50%;
   height: auto;
+}
+
+.slogan {
+  font-style: italic;
 }
