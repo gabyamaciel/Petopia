@@ -1,9 +1,59 @@
 @import "../../shared/mixins";
+@import "../../shared/variables.scss";
 
 button {
   @include button;
 }
 
-.table-style {
+.table-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-button {
+  float: right;
+}
+
+.pet-manager {
   margin: 50px;
+}
+
+.pet-manager h1 {
+  text-align: center;
+}
+
+.table-container {
+  margin: 30px;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 85%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: $secondary-color;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid $secondary-color;
 }

@@ -1,7 +1,7 @@
-<div class="home">
+<div class="pet-manager">
   <h1>Pets Data Manager</h1>
-  <div class="table-style">
-    <table>
+  <div class="table-container">
+    <table class="styled-table">
       <thead>
         <tr>
           <th>Name</th>
@@ -17,17 +17,21 @@
           <td>{{ pet.species }}</td>
           <td>{{ pet.breed }}</td>
           <td>{{ pet.age }}</td>
-          <td>
-            <button (click)="openModal(pet, i)">Edit</button>
-            <button (click)="handleDelete(pet, i)">Delete</button>
+          <td class="table-button">
+            <button  (click)="openModal(pet, i)">Edit</button>
+            <button  (click)="handleDelete(pet, i)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <button class="add-button" (click)="openAddModal()">Add pet</button>
           </td>
         </tr>
       </tbody>
-      <button class="home-button">Add pet</button>
     </table>
   </div>
   <div *ngIf="isModalOpen">
     <edit-modal [selectedPet]="selectedPet" (close)="onModalClose()" (save)="handleSave()"></edit-modal>
   </div>
-  <button class="home-button" [routerLink]="'/home'">Go Back</button>
+  <button [routerLink]="'/home'">Go Back</button>
 </div>

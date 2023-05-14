@@ -32,6 +32,7 @@ export class PetManagerComponent {
 
   selectedPet!: Pet;
   selectedIndex!: number;
+  operation!: string;
 
   constructor(
     private petService: PetService,
@@ -41,22 +42,57 @@ export class PetManagerComponent {
   openModal(pet: Pet, index: number) {
     this.selectedPet = { ...pet };
     this.selectedIndex = index;
+    this.operation = 'edit';
+    this.isModalOpen = true;
+  }
+
+  openAddModal() {
+    this.selectedPet = {
+      id: this.pets.length + 1,
+      name: '',
+      age: 0,
+      species: '',
+      breed: '',
+    };
+    this.operation = 'add';
     this.isModalOpen = true;
   }
 
   handleSave() {
-    this.petService.updatePet(this.selectedPet.id, this.selectedPet).subscribe({
-      next: (response) => {
-        this.notificationService.showSuccess('Pet data updated successfully');
-        this.isModalOpen = false;
-        this.pets[this.selectedIndex] = this.selectedPet;
-      },
-      error: (error) => {
-        this.notificationService.showError(
-          `Error updating pet data: ${error.message}`
-        );
-      },
-    });
+    if (this.operation === 'edit') {
+      this.petService
+        .updatePet(this.selectedPet.id, this.selectedPet)
+        .subscribe({
+          next: (response) => {
+            this.notificationService.showSuccess(
+              'Pet data updated successfully'
+            );
+            this.isModalOpen = false;
+            this.pets[this.selectedIndex] = this.selectedPet;
+          },
+          error: (error) => {
+            this.notificationService.showError(
+              `Error updating pet data: ${error.message}`
+            );
+          },
+        });
+    }
+
+    if (this.operation === 'add') {
+      this.petService.createPet(this.selectedPet).subscribe({
+        next: (response) => {
+          this.notificationService.showSuccess('Pet added successfully');
+          this.isModalOpen = false;
+          this.pets.push(this.selectedPet);
+        },
+        error: (error) => {
+          console.log(this.selectedPet);
+          this.notificationService.showError(
+            `Error adding pet: ${error.message}`
+          );
+        },
+      });
+    }
   }
 
   handleDelete(pet: Pet, index: number) {
