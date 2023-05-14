@@ -25,7 +25,7 @@
     </tbody>
   </table>
   <div *ngIf="isModalOpen">
-    <edit-modal [selectedPet]="selectedPet" (closeModal)="closeModal()"></edit-modal>
+    <edit-modal [selectedPet]="selectedPet" (close)="onModalClose()" (save)="onClickSave()"></edit-modal>
   </div>
   <button class="home-button" [routerLink]="'/home'">Go Back</button>
 </div>

@@ -8,7 +8,14 @@ import { Pet } from '../../models/pet.model';
 })
 export class EditModalComponent {
   @Input() selectedPet!: Pet;
-  @Output() closeModal = new EventEmitter<void>();
-  
-  
+  @Output() close: EventEmitter<void> = new EventEmitter<void>();
+  @Output() save: EventEmitter<void> = new EventEmitter<void>();
+
+  closeModal(): void {
+    this.close.emit();
+  }
+
+  saveData(): void {
+    this.save.emit();
+  }
 }
