@@ -1,31 +1,33 @@
 <div class="home">
   <h1>Pets Data Manager</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Species</th>
-        <th>Breed</th>
-        <th>Age</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let pet of pets">
-        <td>{{ pet.name }}</td>
-        <td>{{ pet.species }}</td>
-        <td>{{ pet.breed }}</td>
-        <td>{{ pet.age }}</td>
-        <td>
-          <button (click)="openModal(pet)">Edit</button>
-          <button>Delete</button>
-        </td>
-        
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-style">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Species</th>
+          <th>Breed</th>
+          <th>Age</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of pets; let i = index">
+          <td>{{ pet.name }}</td>
+          <td>{{ pet.species }}</td>
+          <td>{{ pet.breed }}</td>
+          <td>{{ pet.age }}</td>
+          <td>
+            <button (click)="openModal(pet, i)">Edit</button>
+            <button (click)="handleDelete(pet, i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <button class="home-button">Add pet</button>
+    </table>
+  </div>
   <div *ngIf="isModalOpen">
-    <edit-modal [selectedPet]="selectedPet" (close)="onModalClose()" (save)="onClickSave()"></edit-modal>
+    <edit-modal [selectedPet]="selectedPet" (close)="onModalClose()" (save)="handleSave()"></edit-modal>
   </div>
   <button class="home-button" [routerLink]="'/home'">Go Back</button>
 </div>

@@ -30,7 +30,7 @@ import { NotificationService } from './services/notification.service';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({}),
   ],
   providers: [PetService, NotificationService],
   bootstrap: [AppComponent],

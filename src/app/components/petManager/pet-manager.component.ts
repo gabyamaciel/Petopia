@@ -31,26 +31,44 @@ export class PetManagerComponent {
   isModalOpen = false;
 
   selectedPet!: Pet;
+  selectedIndex!: number;
 
   constructor(
     private petService: PetService,
     private notificationService: NotificationService
   ) {}
 
-  openModal(pet: Pet) {
+  openModal(pet: Pet, index: number) {
     this.selectedPet = { ...pet };
+    this.selectedIndex = index;
     this.isModalOpen = true;
   }
 
-  onClickSave() {
+  handleSave() {
     this.petService.updatePet(this.selectedPet.id, this.selectedPet).subscribe({
       next: (response) => {
-        console.log(response);
         this.notificationService.showSuccess('Pet data updated successfully');
         this.isModalOpen = false;
+        this.pets[this.selectedIndex] = this.selectedPet;
       },
       error: (error) => {
-        this.notificationService.showError(`Error updating pet data: ${error}`);
+        this.notificationService.showError(
+          `Error updating pet data: ${error.message}`
+        );
+      },
+    });
+  }
+
+  handleDelete(pet: Pet, index: number) {
+    this.petService.deletePet(pet.id).subscribe({
+      next: (response) => {
+        this.notificationService.showSuccess('Pet deleted successfully');
+        this.pets.splice(index, 1);
+      },
+      error: (error) => {
+        this.notificationService.showError(
+          `Error updating pet data: ${error.message}`
+        );
       },
     });
   }
@@ -69,7 +87,10 @@ export class PetManagerComponent {
         this.pets = pets;
       },
       error: (error) => {
-        this.notificationService.showError(`Error fetching pets: ${error}`);
+        console.log(error);
+        this.notificationService.showError(
+          `Error fetching pets: ${error.message}`
+        );
       },
     });
   }
