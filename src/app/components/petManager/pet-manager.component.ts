@@ -59,6 +59,11 @@ export class PetManagerComponent {
   }
 
   handleSave() {
+    if (!this.selectedPet.name || !this.selectedPet.age || !this.selectedPet.species || !this.selectedPet.breed) {
+      this.notificationService.showError('Please fill in all the required fields');
+      return; // Stop further execution
+    }
+
     if (this.operation === 'edit') {
       this.petService
         .updatePet(this.selectedPet.id, this.selectedPet)
@@ -68,7 +73,7 @@ export class PetManagerComponent {
               'Pet data updated successfully'
             );
             this.isModalOpen = false;
-            this.pets[this.selectedIndex] = this.selectedPet;
+            this.fetchPets();
           },
           error: (error) => {
             this.notificationService.showError(
@@ -83,10 +88,9 @@ export class PetManagerComponent {
         next: (response) => {
           this.notificationService.showSuccess('Pet added successfully');
           this.isModalOpen = false;
-          this.pets.push(this.selectedPet);
+          this.fetchPets();
         },
         error: (error) => {
-          console.log(this.selectedPet);
           this.notificationService.showError(
             `Error adding pet: ${error.message}`
           );
@@ -99,7 +103,7 @@ export class PetManagerComponent {
     this.petService.deletePet(pet.id).subscribe({
       next: (response) => {
         this.notificationService.showSuccess('Pet deleted successfully');
-        this.pets.splice(index, 1);
+        this.fetchPets();
       },
       error: (error) => {
         this.notificationService.showError(
@@ -123,7 +127,6 @@ export class PetManagerComponent {
         this.pets = pets;
       },
       error: (error) => {
-        console.log(error);
         this.notificationService.showError(
           `Error fetching pets: ${error.message}`
         );

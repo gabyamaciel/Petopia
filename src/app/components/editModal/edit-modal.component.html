@@ -2,13 +2,13 @@
   <div class="modal-content">
     <button class="close-button" (click)="close.emit()">X</button>
     <label id="name">Name:</label>
-    <input id="name" type="text" [(ngModel)]="selectedPet.name" />
+    <input id="name" type="text" [(ngModel)]="selectedPet.name" required />
     <label for="species">Species:</label>
-    <input id="species" type="text" [(ngModel)]="selectedPet.species" />
+    <input id="species" type="text" [(ngModel)]="selectedPet.species" required />
     <label for="breed">Breed:</label>
-    <input id="breed" type="text" [(ngModel)]="selectedPet.breed" />
+    <input id="breed" type="text" [(ngModel)]="selectedPet.breed" required />
     <label for="age">Age:</label>
-    <input id="age" type="number" [(ngModel)]="selectedPet.age" />
-    <button class="save-button" (click)="save.emit()">Save & Close</button>
+    <input id="age" type="number" min="0" [(ngModel)]="selectedPet.age" required />
+    <button class="save-button" (click)="save.emit()">Save</button>
   </div>
 </div>

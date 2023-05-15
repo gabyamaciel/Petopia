@@ -1,8 +1,17 @@
 @import "../../shared/mixins";
 
 .save-button {
-  @include button;
-  max-width: fit-content;
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #45a049;
+  }
 }
 
 .modal {
@@ -22,7 +31,7 @@
   background-color: #fff;
   width: 400px;
   max-width: 90%;
-  height: 400px;
+  height: fit-content;
   margin: auto;
   padding: 30px;
   border-radius: 5px;
@@ -40,8 +49,19 @@
   position: absolute;
   top: 5px;
   right: 10px;
+  &:hover {
+    background-color: #555;
+    color: white;
+    border: 2px solid;
+  }
 }
 
-.close-button:hover {
-  color: #555;
+input[type=text], input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
