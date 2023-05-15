@@ -1,4 +1,4 @@
 export const constants = {
-  apiURL: 'https://my-json-server.typicode.com/gabyamaciel/pet-store-api/pets',
+  apiURL: 'http://localhost:3000/api/pets',
   siteTitle: 'Petopia',
 };
