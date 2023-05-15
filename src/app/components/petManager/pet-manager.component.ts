@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Pet } from '../../models/pet.model';
 import { PetService } from '../../services/pet.service';
 import { NotificationService } from '../../services/notification.service';
+import { LoadingComponent } from '../loading/loading.component';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -29,6 +30,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 export class PetManagerComponent {
   pets: Pet[] = [];
   isModalOpen = false;
+  isLoading: boolean = true;
 
   selectedPet!: Pet;
   selectedIndex!: number;
@@ -125,6 +127,7 @@ export class PetManagerComponent {
     this.petService.getPet().subscribe({
       next: (pets) => {
         this.pets = pets;
+        this.isLoading = false;
       },
       error: (error) => {
         this.notificationService.showError(

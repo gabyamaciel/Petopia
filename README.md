@@ -12,7 +12,7 @@ This application serves as a demonstration of my proficiency in Angular, JavaScr
 
 ## Technology Stack:
 
-- Frontend: Angular, JavaScript, HTML, CSS
+- Frontend: Angular, JavaScript, HTML, CSS with Sass processor
 - Backend: Mocked server using NodeJS and ExpressJS.
 
 ## Getting Started:

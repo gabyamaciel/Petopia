@@ -12,6 +12,11 @@
         </tr>
       </thead>
       <tbody>
+        <tr *ngIf="isLoading">
+          <td colspan="5">
+            <app-loading ></app-loading>
+          </td>
+        </tr>
         <tr *ngFor="let pet of pets; let i = index">
           <td>{{ pet.name }}</td>
           <td>{{ pet.species }}</td>

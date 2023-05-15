@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PetManagerComponent } from './components/petManager/pet-manager.component';
 import { EditModalComponent } from './components/editModal/edit-modal.component';
+import { LoadingComponent } from './components/loading/loading.component';
 // Services
 import { PetService } from './services/pet.service';
 import { NotificationService } from './services/notification.service';
@@ -23,6 +24,7 @@ import { NotificationService } from './services/notification.service';
     HomeComponent,
     PetManagerComponent,
     EditModalComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
